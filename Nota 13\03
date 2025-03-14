@@ -12,3 +12,58 @@ print('o seu onome é ' + resposta); ///////// o "+" é concatenação
 print('o seu onome é $resposta'); /////////// mesma coisa
 
 usou bastante POO
+
+CODIGO + OU -, COLOCAR CLASSES ESTADO, CIDADE, ETC, FALTOU POO
+
+
+import 'dart:io';
+
+void main() {
+  print('iasjfi');
+  int id;
+  String nome;
+  int idade = 0;
+  double peso = 0.0;
+  String cidade;
+  String estado;
+
+  var resposta = '';
+
+  print('infore sue nome');
+  resposta = stdin.readLineSync()!;
+  nome = resposta;
+
+  print('infore sua idade');
+  resposta = stdin.readLineSync()!;
+ 
+    if (resposta != null) {
+      try {
+        idade = int.parse(resposta);
+      } catch (e) {
+        print('a resposta deve ser um numero');
+      }
+    } else {
+      print('resposta nula');
+    }
+  
+  print('infore seu peso');
+  resposta = stdin.readLineSync()!;
+  if (resposta != null) {
+    try {
+      peso = double.parse(resposta);
+      print('o peso é $peso');
+    } catch (e) {
+      print('a resposta deve ser um numero');
+    }
+  } else {
+    print('resposta nula');
+  }
+
+  print('informe sua cidade');
+  cidade = stdin.readLineSync()!;
+
+  print('informe seu estado');
+  estado = stdin.readLineSync()!;
+
+  print('nome: $nome \nidade: $idade \npeso: $peso  \ncidade: $cidade \nestado: $estado');
+}
