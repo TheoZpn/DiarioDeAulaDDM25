@@ -10,3 +10,5 @@ erro de execucao: quando o usuario ta usando por exemplo
 
 print('o seu onome é ' + resposta); ///////// o "+" é concatenação
 print('o seu onome é $resposta'); /////////// mesma coisa
+
+usou bastante POO
