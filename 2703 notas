@@ -1,0 +1,97 @@
+import 'package:aulahelio/aula_sintaxe/cidade.dart';
+import 'package:aulahelio/aula_sintaxe/endereco.dart';
+import 'package:aulahelio/aula_sintaxe/estado.dart';
+import 'package:aulahelio/aula_sintaxe/fornecedor.dart';
+import 'package:aulahelio/aula_sintaxe/pais.dart';
+import 'package:aulahelio/aula_sintaxe/pessoa.dart';
+import 'dart:io';
+
+import 'package:aulahelio/aula_sintaxe/produto.dart';
+
+/*double calcularIMC(double altura, double peso) {
+  return peso / (altura * altura);
+}*/
+
+/*--------------------------------------------------------------------------------------------------------------------------
+Enunciado: Crie um objeto de Venda que englobe um Cliente cujo endereço possui hierarquia completa (Endereço → Cidade → Estado → País).
+O produto vendido deve estar associado a um Fornecedor com sua própria hierarquia de endereço. Utilize funções anônimas para:
+
+Calcular um imposto dinâmico com base no valor do produto.
+
+Concluir a venda com uma função que valide todas as associações.
+
+Dica: Utilize parâmetros nomeados para facilitar a leitura, mas mantenha alguns parâmetros posicionais para simular a diversidade de construtores.
+ --------------------------------------------------------------------------------------------------------------------------*/
+
+void main() {
+  var pais1 = Pais(nome: 'Brasil', sigla: 'BR');
+  var estado1 = Estado(nome: 'Paraná', sigla: 'PR', pais: pais1);
+  var cidade1 = Cidade(nome: 'Paranavaí', estado: estado1);
+  var endereco1 = Endereco(enderecos: 'Rua pombo, bairro pato', cidade: cidade1);
+
+
+  var fornecedor1 = Fornecedor(nome: 'JAUMUM', endereco: Endereco(
+    enderecos: 'rua bimbao',
+    cidade: Cidade(
+      nome: 'sao paulo',
+      estado: Estado(
+        nome: 'Sao Paulo',
+        sigla: 'SP',
+        pais: pais1))));
+
+  var produto1 =Produto(nome: 'cacatua', valor: 55.33, fornecedor: fornecedor1);
+  var cliente1 = Cliente(nome: 'Jao', endereco: endereco1, produto: produto1);
+
+  
+/*var estado1 = Estado(nome: 'PARANA', sigla: 'PR');
+
+  var cidade1 = Cidade(nome: 'PARANAVAI', estado: estado1);
+
+  var cliente1 = Pessoa(
+      nome: 'jaum',
+      peso: 32.4,
+      altura: 1.55,
+      cidade: cidade1,
+      imc: (double altura, double peso) => peso / (altura * altura));
+
+  Pessoa(
+    nome: 'juaum',
+    altura:  1.55,
+    peso: 55.6,
+    cidade: Cidade(
+      nome: 'mariunga',
+      estado: Estado(
+        nome: 'Paraná',
+        sigla: 'PR'
+      ),
+    ),
+    imc: (double altura, double peso) => peso / (altura * altura)
+  );*/
+
+  /*print('nome: ');
+  var nome = stdin.readLineSync()!;
+
+  print('peso: ');
+  var peso = double.parse(stdin.readLineSync()!);
+  var pessoa = Pessoa(
+    altura: 1.22,
+    nome: 'jao',
+    peso: 33.0,
+    imc: (double altura, double peso) {
+        return peso / (altura * altura);
+      });
+
+  pessoa.imprimirIMC();
+
+  print('Pessoa: ${pessoa.nome}, ${pessoa.peso} ');*/
+}
+------------------
+exemplo de classe
+
+class Cliente {
+  String nome;
+  Endereco endereco;
+  Produto produto;
+
+  Cliente({required this.nome, required this.endereco, required this.produto});
+}
